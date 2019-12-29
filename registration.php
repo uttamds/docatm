@@ -40,12 +40,23 @@ require_once('do.php');
     $address = $_POST['Address'];
     $emailid = $_POST['EmailId'];
     $dateofbirth = $_POST['DateOfBirth'];
-    //$gender = $_POST['Gender'];
-    $gender = 'Male';
-    $age = 2;
+    $gender = $_POST['Gender'];
+    $age = date('Y') - (int) substr($dateofbirth,0,4); 
+    $pwd = $_POST['Password'];
+   echo $pwd;    
+
+    
+    echo substr($dateofbirth,0,4);
     $regnno = 1;
 
-    $sql = "INSERT INTO REGN VALUES('$fullname', '$mobilenumber', '$address', '$emailid', '$dateofbirth', '$gender', $age, $regnno)";
+    $sql = "SELECT max(regnno)  as 'm' FROM regn";
+    $result =  $conn->query($sql);
+    while($row = $result->fetch_assoc()) {
+    echo $row['m'];
+    }
+
+    
+    $sql = "INSERT INTO REGN VALUES('$fullname', '$mobilenumber', '$address', '$emailid', '$dateofbirth', '$gender', $age, $regnno,'$pwd')";
     
     
     if($conn->query($sql) === TRUE)
@@ -59,7 +70,7 @@ require_once('do.php');
     }
     $conn->close();
   }
-
+  
   
   ?>
   <form  method="POST">
@@ -92,26 +103,39 @@ require_once('do.php');
       </div>
       <div class="form-group col-md-4">
         <label for="inputPassword4">Gender</label> <br>
-        <select name="" name="Gender" class="form-control">
-          <option value="">
+        <select name="Gender" name="Gender" class="form-control">
+          <option value="Select">
             Select
           </option>
-          <option value="">
+          <option value="Male">
             Male
           </option>
-          <option value="">
+          <option value="Female">
             Female
           </option>
-          <option value="">
+          <option value="Other">
             Other
           </option>
 
         </select>
       </div>
     </div>
+    
     <div class="form-row">
       <div class="form-group col-md-4">
-        <button type="submit" class="btn btn-primary" name = "signup"> Sign up</button>
+      <label for="inputEmail4"><b>Login Password</b></label> <br>
+
+        <label for="inputEmail4">Enter password</label>
+        <input type="password" class="form-control" name="Password" required>
+      </div>
+
+    </div>
+    
+    
+    
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <button type="submit" class="btn btn-primary" name = "signup" > Sign up</button>
         <button type="submit" class="btn btn-warning">Cancel</button>
        
        </div>
