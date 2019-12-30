@@ -1,6 +1,4 @@
-<?php
-require_once('do.php');
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +23,11 @@ require_once('do.php');
 <body class="p-3 mb-2 bg-light text-dark">
   <?php
 
+if(isset($_POST['reset'])){
+  echo 'hello';
+}
+
+
   if(isset($_POST['signup'])){
   
     $servername = "localhost";
@@ -48,11 +51,11 @@ require_once('do.php');
     
     echo substr($dateofbirth,0,4);
     $regnno = 1;
-
+    
     $sql = "SELECT max(regnno)  as 'm' FROM regn";
     $result =  $conn->query($sql);
     while($row = $result->fetch_assoc()) {
-    echo $row['m'];
+      $regnno =      $row['m'] + 1;
     }
 
     
@@ -64,6 +67,7 @@ require_once('do.php');
       
         echo '<h3>'.'Your record has been saved successfully'.'</h3><br>';
         echo '<h3>'.'Please note your registration number is : '.$regnno.'</h3>';
+        header("refresh:3;url=welcome.html" );
     }
     else{
       echo 'Failed';
@@ -136,12 +140,15 @@ require_once('do.php');
     <div class="form-row">
       <div class="form-group col-md-4">
         <button type="submit" class="btn btn-primary" name = "signup" > Sign up</button>
-        <button type="submit" class="btn btn-warning">Cancel</button>
+        <button type="submit" class="btn btn-warning" onClick="document.location.href='index.html';" >Cancel</button>
+        <button  type = "reset" class="btn btn-danger" name = "reset">Reset</button>
        
        </div>
     </div>
     
   </form>
+
+  
 </div>
 </body>
 </html>
