@@ -48,8 +48,28 @@
    else
    {
     echo '<h2>Login Successfull....</h2>';
-    header("refresh:3;url=medicine.php" );
+    if ((int) $row['regnno'] <= 10)
+    {
+    // header("refresh:3;url=select.php" );
+    header("Location:select.php");
+
     $_SESSION['regnno']  = (int) $row['regnno'];
+    echo 'here';
+    }
+    else if ((int) $row['regnno'] > 10 && (int) $row['regnno'] < 31)
+    {
+    // header("refresh:1;url=select.php" );
+    header("Location:select.php");
+    $_SESSION['regnno']  = (int) $row['regnno'];
+    echo 'more than 10';
+    }
+    else
+    {
+    header("refresh:3;url=select.php" );
+    $_SESSION['regnno']  = (int) $row['regnno'];
+
+    }
+
   }
   
 
@@ -77,7 +97,9 @@
         <button type="submit" class="btn btn-warning" onClick="document.location.href='index.html';" >Cancel</button>
         <button  type = "reset" class="btn btn-danger" name = "reset">Reset</button>
         <br>
-        <a href="">Forgot password...</a>
+        <a href="">Forgot password...</a> <br>
+
+        <a href="Registration.php">New User Sign up...</a>
        </div>
     </div>
     
