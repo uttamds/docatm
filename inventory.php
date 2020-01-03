@@ -79,7 +79,7 @@ if(isset($_POST['reset'])){
   ?>
   <form  method="POST">
     <div class="container" style="margin-top: 50px;">
-    <div><h1>New Patient Sign Up</h1></div>
+    <div><h1>Medicine Data Entry Screen</h1></div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <label for="inputEmail4">Full Name</label>

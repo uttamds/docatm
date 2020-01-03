@@ -21,6 +21,9 @@
         crossorigin="anonymous"></script>
     <title>Doctor's A T M</title>
 
+ 
+
+
  </head>
 <body class="p-3 mb-2 bg-light text-dark">
   <?php
@@ -88,16 +91,18 @@
       </div>
       <div class="form-group col-md-4">
         <label for="inputPassword4">Enter your password</label>
-        <input type="text" class="form-control" name="Password" required>
+        <input type="password" class="form-control" name="Password" required>
       </div>
     </div>
     <div class="form-row">
       <div class="form-group col-md-4">
         <button type="submit" class="btn btn-primary" name = "login"> Login</button>
-        <button type="submit" class="btn btn-warning" onClick="document.location.href='index.html';" >Cancel</button>
+        <button type="submit" class="btn btn-warning" onClick="document.location.href='welcome.html';" >Cancel</button>
         <button  type = "reset" class="btn btn-danger" name = "reset">Reset</button>
         <br>
-        <a href="">Forgot password...</a> <br>
+        <a href="forgot.php">Forgot password...</a> <br>
+
+
 
         <a href="Registration.php">New User Sign up...</a>
        </div>
