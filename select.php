@@ -40,6 +40,7 @@ while($row = $result->fetch_assoc()){
 ?>
 
 </select>
+
 <input type="submit" name="submit" value="Select the main category of problem" />
 <input type="submit" name="cancel" value="Cancel" />
 </form>

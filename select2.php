@@ -17,9 +17,31 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <title>Doctor's A T M</title>
+<style>
+
+body, html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("images/background.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+</style>
+
+
 
  </head>
-<body class="p-3 mb-2 bg-light text-dark">
+<body class="bg">
 
 
 
@@ -34,7 +56,12 @@ $sql = "select subcat from f6t10 where maincat ='".$_SESSION['maincat']."'";
 $result =  $conn->query($sql);
 ?>
 <form action="#" method="post">
-<select name="MainCat">
+<div class="container" style="margin-top: 50px;">
+
+<br>
+<br>
+<h1 style="color:white">Select the main sub-category of the problem:</h1>
+<select name="MainCat" class="form-control">
 <?php
 while($row = $result->fetch_assoc()){
     echo '<option value='.$row['subcat'].'>'.$row['subcat'].'</option>';
@@ -43,8 +70,13 @@ $_SESSION['subcat'] = $row['subcat'];
 ?>
 
 </select>
-<input type="submit" name="submit" value="Select Sub-Category of problem" />
-<input type="submit" name="cancel" value="Cancel" />
+<br>
+<input type="submit" name="submit" class="btn btn-warning" value="Click to continue..." />
+<br>
+
+<br>
+<input type="submit" class="btn btn-danger" name="cancel" value="Cancel" />
+</div>
 </form>
 <?php
 if(isset($_POST['submit'])){
@@ -57,5 +89,7 @@ if(isset($_POST['cancel'])){
     header("Location:login.php");
 }
 ?>
+    
+    
 </body>
 </html>

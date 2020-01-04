@@ -20,12 +20,32 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <title>Doctor's A T M</title>
+    <style>
+
+body, html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("images/background4.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+</style>
 
  
 
 
  </head>
-<body class="p-3 mb-2 bg-light text-dark">
+<body class="bg">
   <?php
 
   if(isset($_POST['login'])){
@@ -62,7 +82,7 @@
     else if ((int) $row['regnno'] > 10 && (int) $row['regnno'] < 31)
     {
     // header("refresh:1;url=select.php" );
-    header("Location:select.php");
+    header("Location:select1.php");
     $_SESSION['regnno']  = (int) $row['regnno'];
     echo 'more than 10';
     }
@@ -100,11 +120,12 @@
         <button type="submit" class="btn btn-warning" onClick="document.location.href='welcome.html';" >Cancel</button>
         <button  type = "reset" class="btn btn-danger" name = "reset">Reset</button>
         <br>
-        <a href="forgot.php">Forgot password...</a> <br>
-
-
-
-        <a href="Registration.php">New User Sign up...</a>
+        <br>
+        <br>
+        <div style="background-color:white">
+        <a href="forgot.php"><b> Forgot password...</a> <br>
+        <a href="Registration.php"> New User Sign up...</a>
+        </div>
        </div>
     </div>
     

@@ -52,6 +52,9 @@ session_start();
 ?>
 <div >
             <h1> PRESCRIPTION</h1>
+
+
+            
        <h4> Pateint Name :<?php echo $fullname ?> </h4> <br>
        <h4> Pateint Age :<?php echo $age ?> </h4> <br>
 

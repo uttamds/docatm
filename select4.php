@@ -18,9 +18,31 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <title>Doctor's A T M</title>
+    <style>
+
+body, html {
+  height: 100%;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("images/background3.jpg");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+</style>
+
+
 
  </head>
-<body class="p-3 mb-2 bg-light text-dark">
+<body class="bg">
 
 
 <?php
@@ -33,11 +55,16 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 $sql = "select medicine from f6t10 where symtom ='".$_SESSION['symtom']."'";
 $result =  $conn->query($sql);
 ?>
+<div class="row"  style="margin-bottom:10px; margin-top: 150px;" >
+<div class="col-md-6">
+</div>
+    <div class="col-md-6">
+
 <form action="#" method="post">
 
 <?php
 while($row = $result->fetch_assoc()){
-    echo '<h2>'.$row['medicine'].'</h2>';
+    echo '<h2>Your medicine:     '.$row['medicine'].'</h2>';
     $e = $row['medicine'];;
 }
 $recdate = date("Y-m-d");
@@ -48,10 +75,10 @@ $d = $_SESSION['symtom'];
 $sql1 = "INSERT INTO RECORDS VALUES($a,'$recdate','$b','$c','$d','$e')";
 $conn->query($sql1);
 ?>
-<input type="submit" name="prescription" value="Print priscription" />
-<input type="submit" name="reset_sel" value="Reset selection and select again" />
-<input type="submit" name="back" value="Logout" />
-<input type="submit" name="cancel" value="Cancel" />
+<input type="submit"  class="btn btn-primary" name="prescription" value="Print priscription" />
+<input type="submit"  class="btn btn-primary" name="reset_sel" value="Reset selection and select again" />
+<input type="submit"  class="btn btn-danger" name="back" value="Logout" />
+<input type="submit"  class="btn btn-warning" name="cancel" value="Cancel" />
 </form>
 <?php
 if(isset($_POST['back'])){
@@ -76,5 +103,8 @@ if(isset($_POST['cancel'])){
 ?>
 
 
+</div>
+
+</div>
 </body>
 </html>
