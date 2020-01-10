@@ -17,32 +17,46 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <title>Doctor's A T M</title>
+    <style>
+                body, html {
+                height: 100%;
+                }
 
+                .bg {
+                        /* The image used */
+                        background-image: url("images/welcome.jpg");
+
+                        /* Full height */
+                        height: 100%;
+
+                        /* Center and scale the image nicely */
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                    }
+    </style>
  </head>
-<body class="p-3 mb-2 bg-light text-dark">
+<body class="bg">
 
 <?php
-session_start();
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "doctoratm";
-$conn = new mysqli($servername, $username, $password, $dbname);
-$sql = "select Distinct maincat from f6t10";
-$result =  $conn->query($sql);
-?>
-<form action="#" method="post">
-<select name="MainCat">
-<?php
-while($row = $result->fetch_assoc()){
-    echo '<option value='.$row['maincat'].'>'.$row['maincat'].'</option>';
-}
-?>
-
-</select>
-
-<input type="submit" name="submit" value="Select the main category of problem" />
-<input type="submit" name="cancel" value="Cancel" />
+session_start();?>
+<form>
+    <div class="container" style="margin-top: 50px;">
+           <div class="row"  >
+               <div >
+                      <button><img src="images/ambulance.jpg" alt="" height="200px" width = "300px"> </button> 
+                      <button><img src="images/allergies.jpg" alt="" height="200px" width = "300px"> </button>  
+                      <button><img src="images/monsoon.jpg" alt="" height="200px" width = "300px"> </button>  
+               </div>
+           </div>      
+           <div class="row"  >
+               <div >
+                      <button><img src="images/injuries.jpg" alt="" height="200px" width = "300px"> </button> 
+                      <button><img src="images/heart.jpg" alt="" height="200px" width = "300px"></button>  
+                      <button><img src="images/pains.jpg" alt="" height="200px" width = "300px"></button>  
+               </div>
+           </div>      
+           </div>      
 </form>
 <?php
 if(isset($_POST['submit'])){
