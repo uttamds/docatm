@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,12 +21,9 @@
  </head>
 <body class="p-3 mb-2 bg-light text-dark">
   <?php
-
 if(isset($_POST['reset'])){
   echo 'hello';
 }
-
-
   if(isset($_POST['signup'])){
   
     $servername = "localhost";
@@ -47,7 +43,6 @@ if(isset($_POST['reset'])){
     $age = date('Y') - (int) substr($dateofbirth,0,4); 
     $pwd = $_POST['Password'];
    echo $pwd;    
-
     
     echo substr($dateofbirth,0,4);
     $regnno = 1;
@@ -57,7 +52,6 @@ if(isset($_POST['reset'])){
     while($row = $result->fetch_assoc()) {
       $regnno =      $row['m'] + 1;
     }
-
     
     $sql = "INSERT INTO REGN VALUES('$fullname', '$mobilenumber', '$address', '$emailid', '$dateofbirth', '$gender', $age, $regnno,'$pwd')";
     
@@ -145,8 +139,7 @@ if(isset($_POST['reset'])){
        
        </div>
     </div>
-    
-  </form>
+    </form>
 
   
 </div>

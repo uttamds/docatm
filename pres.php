@@ -29,11 +29,9 @@ session_start();
         $password = "";
         $dbname = "doctoratm";
         $conn = new mysqli($servername, $username, $password, $dbname);
-
         $sql = "select * from  records where regnno =".$_SESSION['r']." and recorddate='".$_SESSION['d']."'";
         
         $result =  $conn->query($sql);
-
         $row = $result->fetch_assoc();
         $mc = $row['maincat'];
         $sc = $row['subcat'];
@@ -44,7 +42,6 @@ session_start();
         $sql = 'select * from  regn where regnno ='.$_SESSION['r'];    
         $result =  $conn->query($sql);
         if($row = $result->fetch_assoc()){
-
                 $fullname= $row['fullname'];
                 $address  = $row['address'];
                 $age = $row['age'];
@@ -70,18 +67,12 @@ session_start();
         </form>
 
 <?php
-
 if(isset($_POST['back'])){
   
     header("Location:login.php");  
 }
-
 ?>
 
 
 </body>
 </html>
-
-
-
-

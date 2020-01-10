@@ -21,14 +21,13 @@
         crossorigin="anonymous"></script>
     <title>Doctor's A T M</title>
     <style>
-
 body, html {
   height: 100%;
 }
 
 .bg {
   /* The image used */
-  background-image: url("images/background4.jpg");
+  background-image: url("images/Background1.jpg");
 
   /* Full height */
   height: 100%;
@@ -39,15 +38,12 @@ body, html {
   background-size: cover;
 }
 
+
 </style>
+</head>
 
- 
-
-
- </head>
 <body class="bg">
   <?php
-
   if(isset($_POST['login'])){
   
     $servername = "localhost";
@@ -57,15 +53,13 @@ body, html {
     $conn = new mysqli($servername, $username, $password, $dbname);
     $regnno = $_POST['RegnNo'];
     $pwd = $_POST['Password'];
-
     
-
-    $sql = 'SELECT regnno, password FROM regn where regnno ='.$regnno;
+    $sql = 'SELECT regno, password FROM regn where regno ='.$regnno;
    
     $result =  $conn->query($sql);
   $row = $result->fetch_assoc() ;
   
-       if($row['regnno'] != (int)$regnno || $row['password'] != $pwd){
+       if($row['regno'] != (int)$regnno || $row['password'] != $pwd){
        echo '<h2>Regn Number or password entered in incorrect!</h2>';
    }
    else
@@ -75,7 +69,6 @@ body, html {
     {
     // header("refresh:3;url=select.php" );
     header("Location:select.php");
-
     $_SESSION['regnno']  = (int) $row['regnno'];
     echo 'here';
     }
@@ -83,33 +76,29 @@ body, html {
     {
     // header("refresh:1;url=select.php" );
     header("Location:select1.php");
-    $_SESSION['regnno']  = (int) $row['regnno'];
+    $_SESSION['regno']  = (int) $row['regno'];
     echo 'more than 10';
     }
     else
     {
     header("refresh:3;url=select.php" );
-    $_SESSION['regnno']  = (int) $row['regnno'];
-
+    $_SESSION['regno']  = (int) $row['regno'];
     }
-
   }
   
-
     
 }
-
   
   ?>
   <form  method="POST">
     <div class="container" style="margin-top: 50px;">
-    <div><h1>Sign in</h1></div>
+    <div><h1 style="color:white" >Sign in</h1></div>
     <div class="form-row">
       <div class="form-group col-md-4">
-        <label for="inputEmail4">Enter your registration number</label>
+        <label for="inputEmail4" style="color:white">Enter your registration number</label>
         <input type="number" class="form-control" name="RegnNo" required>
       </div>
-      <div class="form-group col-md-4">
+      <div class="form-group col-md-4" style="color:white" >
         <label for="inputPassword4">Enter your password</label>
         <input type="password" class="form-control" name="Password" required>
       </div>

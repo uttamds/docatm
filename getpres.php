@@ -73,74 +73,27 @@ if(isset($_POST['reset'])){
   ?>
   <form  method="POST">
     <div class="container" style="margin-top: 50px;">
-    <div><h1>New Patient Sign Up</h1></div>
+    <div><h1>Prescription...</h1></div>
     <div class="form-row">
       <div class="form-group col-md-4">
-        <label for="inputEmail4">Full Name</label>
-        <input type="text" class="form-control" name="FullName" required>
+        <label for="inputEmail4">Enter Registraion Number</label>
+        <input type="number" class="form-control" name="FullName" required>
       </div>
       <div class="form-group col-md-4">
-        <label for="inputPassword4">Mobile Number</label>
-        <input type="text" class="form-control" name="MobileNumber" required>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="inputEmail4">Address</label>
-        <input type="text" class="form-control" name="Address" required>
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputPassword4">Email ID</label>
-        <input type="email" class="form-control" name="EmailId">
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <label for="inputEmail4">Date of birth</label>
-        <input type="date" class="form-control" name="DateOfBirth" required>
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputPassword4">Gender</label> <br>
-        <select name="Gender" name="Gender" class="form-control">
-          <option value="Select">
-            Select
-          </option>
-          <option value="Male">
-            Male
-          </option>
-          <option value="Female">
-            Female
-          </option>
-          <option value="Other">
-            Other
-          </option>
-
-        </select>
+        <label for="inputPassword4">Select Date</label>
+        <input type="date" class="form-control" name="MobileNumber" required>
       </div>
     </div>
     
     <div class="form-row">
       <div class="form-group col-md-4">
-      <label for="inputEmail4"><b>Login Password</b></label> <br>
-
-        <label for="inputEmail4">Enter password</label>
-        <input type="password" class="form-control" name="Password" required>
-      </div>
-
-    </div>
-    
-    
-    
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <button type="submit" class="btn btn-primary" name = "signup" > Sign up</button>
+        <button type="submit" class="btn btn-primary" name = "signup" >Get Prescription</button>
         <button type="submit" class="btn btn-warning" onClick="document.location.href='welcome.html';" >Cancel</button>
         <button  type = "reset" class="btn btn-danger" name = "reset">Reset</button>
        
        </div>
     </div>
-    
-  </form>
+
 
   
 </div>
